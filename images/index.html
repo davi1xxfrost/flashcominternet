@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Globo Leve Corporativo</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="cobe-canvas"></canvas>
+
+  <script type="module">
+    import createGlobe from 'https://cdn.skypack.dev/cobe';
+
+    let phi = 0;
+    const canvas = document.getElementById("cobe-canvas");
+
+    const globe = createGlobe(canvas, {
+      devicePixelRatio: 1, // Mais leve
+      width: canvas.offsetWidth,
+      height: canvas.offsetHeight,
+      phi: 0,
+      theta: 0.3,
+      dark: 1, // Fundo do globo preto
+      diffuse: 1.2,
+      mapSamples: 2000, // SUPER LEVE
+      mapBrightness: 1.2,
+      baseColor: [1, 0.39, 0], // Laranja #ff6400 para o mapa
+      markerColor: [1, 0.39, 0], // Mesmo laranja para marcador
+      glowColor: [1, 1, 1], // Brilho branco
+      markers: [
+        { location: [-21.1783, -47.8064], size: 0.15 } // Ribeirão Preto
+      ],
+      onRender: (state) => {
+        state.phi = phi;
+        phi += 0.002; // Rotação suave
+      },
+    });
+
+    window.addEventListener('resize', () => {
+      globe.resize(canvas.offsetWidth, canvas.offsetHeight);
+    });
+  </script>
+</body>
+</html>
