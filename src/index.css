@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+
+@layer base {
+  :root {
+    --background: 0 0% 3%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 25 95% 53%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-black text-white font-sans;
+  }
+}
+
+@layer components {
+  .gradient-mesh {
+    background: radial-gradient(ellipse at top, rgba(255, 100, 0, 0.3) 0%, rgba(255, 100, 0, 0.1) 40%, transparent 70%),
+                radial-gradient(ellipse at bottom right, rgba(255, 165, 0, 0.2) 0%, transparent 60%),
+                linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 20, 0.95) 100%);
+  }
+  
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .orange-glow {
+    box-shadow: 0 0 50px rgba(255, 100, 0, 0.6), 0 0 100px rgba(255, 100, 0, 0.3);
+  }
+  
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+
+  .card-3d {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.3s ease;
+    /* Remover inclinação padrão */
+  }
+
+  .card-3d:hover {
+    transform: rotateX(5deg) rotateY(5deg) translateZ(20px);
+  }
+
+  .floating-3d {
+    animation: float3d 12s ease-in-out infinite;
+    transform-style: preserve-3d;
+  }
+
+  .cube-3d {
+    transform-style: preserve-3d;
+    animation: rotate3d 20s linear infinite;
+  }
+
+  .sphere-3d {
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 100, 0, 0.8), rgba(255, 100, 0, 0.3));
+    animation: float3d 8s ease-in-out infinite reverse;
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .transform-gpu {
+    transform: translateZ(0);
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+}
+
+@keyframes float3d {
+  0%, 100% { 
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg); 
+  }
+  25% { 
+    transform: translateY(-20px) rotateX(5deg) rotateY(5deg); 
+  }
+  50% { 
+    transform: translateY(-10px) rotateX(-3deg) rotateY(10deg); 
+  }
+  75% { 
+    transform: translateY(-15px) rotateX(3deg) rotateY(-5deg); 
+  }
+}
+
+@keyframes rotate3d {
+  0% { 
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); 
+  }
+  33% { 
+    transform: rotateX(120deg) rotateY(120deg) rotateZ(0deg); 
+  }
+  66% { 
+    transform: rotateX(240deg) rotateY(240deg) rotateZ(120deg); 
+  }
+  100% { 
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); 
+  }
+}
+
+@keyframes pulse3d {
+  0%, 100% { 
+    transform: scale(1) translateZ(0px);
+    box-shadow: 0 0 30px rgba(255, 100, 0, 0.5);
+  }
+  50% { 
+    transform: scale(1.1) translateZ(10px);
+    box-shadow: 0 0 60px rgba(255, 100, 0, 0.8);
+  }
+}
+
+/* Esconde completamente a barra de rolagem no mobile */
+@media (max-width: 640px) {
+  body, html {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE 10+ */
+    overflow-y: scroll;
+  }
+  body::-webkit-scrollbar, html::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+}
