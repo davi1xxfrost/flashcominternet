@@ -46,10 +46,10 @@ const BenefitsSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-gradient mb-6">
-            Por que Somos a Melhor Escolha?
+            Sobre Nós
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Oferecemos a melhor experiência em conectividade com tecnologia de ponta e atendimento excepcional
+            Conheça nossa história, missão e os diferenciais que fazem da Flashcom Internet a melhor escolha para você.
           </p>
         </div>
 

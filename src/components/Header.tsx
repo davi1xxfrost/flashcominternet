@@ -4,12 +4,26 @@ import React, { useState, useEffect } from 'react';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const sections = ['hero', 'plans', 'benefits', 'contact'];
+      let current = 'hero';
+      const scrollPosition = window.scrollY + 100; // Usa o topo da tela + offset
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop;
+          if (scrollPosition >= top) {
+            current = id;
+          }
+        }
+      }
+      setActiveSection(current);
     };
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -24,7 +38,7 @@ const Header = () => {
   const navigationItems = [
     { label: 'Início', id: 'hero' },
     { label: 'Planos', id: 'plans' },
-    { label: 'Sobre Nós', id: 'about' },
+    { label: 'Sobre Nós', id: 'benefits' },
     { label: 'Suporte', id: 'contact' },
   ];
 
@@ -55,7 +69,7 @@ const Header = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-white font-bold hover:text-brand-orange transition-all duration-300 transform hover:scale-105"
+                className={`font-bold transition-all duration-300 transform hover:text-brand-orange hover:scale-105 ${activeSection === item.id ? 'text-brand-orange' : 'text-white'}`}
               >
                 {item.label}
               </button>
@@ -81,7 +95,7 @@ const Header = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-gray-300 hover:text-brand-orange transition-colors duration-300 font-medium text-left"
+                  className={`transition-colors duration-300 font-medium text-left ${activeSection === item.id ? 'text-brand-orange' : 'text-gray-300'} hover:text-brand-orange`}
                 >
                   {item.label}
                 </button>

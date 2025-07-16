@@ -3,7 +3,7 @@ import { Users, MapPin, Rocket, Heart } from 'lucide-react';
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-20 bg-gray-900">
+    <section id="benefits" className="py-20 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
