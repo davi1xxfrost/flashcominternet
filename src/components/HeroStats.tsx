@@ -31,36 +31,36 @@ const HeroStats = () => {
   }, [apiReady]);
 
   return (
-    <>
-      {/* Mobile: carrossel */}
-      <div className="block sm:hidden w-full max-w-xs mx-auto">
+  <>
+    {/* Mobile: carrossel */}
+    <div className="block sm:hidden w-full max-w-xs mx-auto">
         <Carousel setApi={handleSetApi}>
-          <CarouselContent>
-            {stats.map((stat) => (
-              <CarouselItem key={stat.value}>
-                <div className="card-3d glass-effect rounded-2xl p-6 shadow-2xl hover:shadow-orange-500/20 transition-all duration-500">
-                  <div className="text-3xl font-bold text-brand-orange mb-2 drop-shadow-lg">{stat.value}</div>
-                  <div className="text-gray-300">{stat.label}</div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
-      </div>
-      {/* Desktop: grid */}
-      <div className="hidden sm:grid grid-cols-3 gap-8 max-w-4xl mx-auto perspective-1000">
-        {stats.map((stat) => (
-          <div
-            key={stat.value}
-            className="card-3d glass-effect rounded-2xl p-6 shadow-2xl hover:shadow-orange-500/20 transition-all duration-500"
-          >
-            <div className="text-3xl lg:text-4xl font-bold text-brand-orange mb-2 drop-shadow-lg">{stat.value}</div>
-            <div className="text-gray-300">{stat.label}</div>
-          </div>
-        ))}
-      </div>
-    </>
-  );
+        <CarouselContent>
+          {stats.map((stat) => (
+            <CarouselItem key={stat.value}>
+              <div className="card-3d glass-effect rounded-2xl p-6 shadow-2xl hover:shadow-orange-500/20 transition-all duration-500">
+                <div className="text-3xl font-bold text-brand-orange mb-2 drop-shadow-lg">{stat.value}</div>
+                <div className="text-gray-300">{stat.label}</div>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
+    </div>
+    {/* Desktop: grid */}
+    <div className="hidden sm:grid grid-cols-3 gap-8 max-w-4xl mx-auto perspective-1000">
+      {stats.map((stat) => (
+        <div
+          key={stat.value}
+          className="card-3d glass-effect rounded-2xl p-6 shadow-2xl hover:shadow-orange-500/20 transition-all duration-500"
+        >
+          <div className="text-3xl lg:text-4xl font-bold text-brand-orange mb-2 drop-shadow-lg">{stat.value}</div>
+          <div className="text-gray-300">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </>
+);
 };
 
 export default HeroStats; 

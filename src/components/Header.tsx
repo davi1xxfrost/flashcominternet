@@ -36,7 +36,7 @@ const Header = () => {
         onClick={() => scrollToSection('hero')}
         style={{ height: '100%' }}
       >
-        <img src="/images/flash.png" alt="Flashcom Net Logo" className="h-20 lg:h-28 w-auto object-contain" />
+        <img src={`${import.meta.env.BASE_URL}images/flash.png`} alt="Flashcom Net Logo" className="h-20 lg:h-28 w-auto object-contain" />
       </div>
       {/* Botão Promoções: absoluto só em lg+ */}
       <div
