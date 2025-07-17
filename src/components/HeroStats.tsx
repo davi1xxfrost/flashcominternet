@@ -33,7 +33,7 @@ const HeroStats = () => {
   return (
   <>
     {/* Mobile: carrossel */}
-    <div className="block sm:hidden w-full max-w-xs mx-auto">
+    <div className="block sm:hidden w-full max-w-xs mx-auto mb-6">
         <Carousel setApi={handleSetApi}>
         <CarouselContent>
           {stats.map((stat) => (
@@ -48,7 +48,7 @@ const HeroStats = () => {
       </Carousel>
     </div>
     {/* Desktop: grid */}
-    <div className="hidden sm:grid grid-cols-3 gap-8 max-w-4xl mx-auto perspective-1000">
+    <div className="hidden sm:grid grid-cols-3 gap-8 max-w-4xl mx-auto perspective-1000 mb-6">
       {stats.map((stat) => (
         <div
           key={stat.value}

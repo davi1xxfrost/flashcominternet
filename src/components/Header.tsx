@@ -43,12 +43,11 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent lg:bg-[rgba(0,0,0,0.8)]">
+    <header className="lg:fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
       {/* Logo: absoluta só em lg+ */}
       <div
-        className="cursor-pointer flex items-center h-16 lg:h-20 pl-4 lg:pl-4 lg:absolute lg:top-0 lg:left-0 lg:z-50 -mt-3 lg:mt-0"
+        className="cursor-pointer flex items-center pl-4 absolute top-0 left-0 z-50 lg:h-20 lg:pl-4 lg:absolute lg:top-0 lg:left-0 lg:z-50"
         onClick={() => scrollToSection('hero')}
-        style={{ height: '100%' }}
       >
         <img src={`${import.meta.env.BASE_URL}images/flash.png`} alt="Flashcom Net Logo" className="h-20 lg:h-28 w-auto object-contain" />
       </div>
@@ -62,7 +61,7 @@ const Header = () => {
         </button>
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="flex items-center justify-between min-h-16 lg:h-20">
           {/* Desktop Navigation centralizado na tela */}
           <nav className="hidden lg:flex items-center space-x-8 fixed left-1/2 top-0 h-16 lg:h-20 -translate-x-1/2 z-40">
             {navigationItems.map((item) => (
@@ -78,19 +77,31 @@ const Header = () => {
 
           {/* Mobile Menu Button no canto superior direito */}
           <button
-            className="lg:hidden text-white hover:text-brand-orange transition-colors duration-300 absolute top-4 right-4 z-50 text-3xl font-bold"
+            className="lg:hidden text-white hover:text-brand-orange transition-colors duration-300 fixed top-4 right-4 z-50 text-3xl font-bold"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            style={{top: '1rem', right: '1rem'}}
             aria-label={isMobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
           >
-            {isMobileMenuOpen ? '×' : <span style={{fontSize: '2rem', lineHeight: 1}}>&#9776;</span>}
+            <span className="relative w-8 h-8 flex items-center justify-center">
+              <span
+                className={`block absolute w-8 h-1 rounded transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 bg-[#ff6400] top-3.5' : 'bg-[#ff6400] top-2'}`}
+                style={{ left: 0 }}
+              ></span>
+              <span
+                className={`block absolute w-8 h-1 rounded transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : 'bg-[#ff6400] top-4'}`}
+                style={{ left: 0 }}
+              ></span>
+              <span
+                className={`block absolute w-8 h-1 rounded transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 bg-[#ff6400] top-3.5' : 'bg-[#ff6400] top-6'}`}
+                style={{ left: 0 }}
+              ></span>
+            </span>
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden glass-effect border-t border-gray-700 py-4 rounded-b-lg">
-            <nav className="flex flex-col space-y-4 pl-4">
+          <div className="lg:hidden fixed top-0 left-0 w-screen h-screen z-40 flex items-center justify-center backdrop-blur-md">
+            <nav className="flex flex-col space-y-4 p-8 bg-[#181818] border border-gray-700 rounded-xl w-[90vw] max-w-xs mx-auto mt-0">
               {navigationItems.map((item) => (
                 <button
                   key={item.id}

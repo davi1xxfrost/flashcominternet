@@ -64,9 +64,9 @@ const PlansSection = () => {
   ];
 
   return (
-    <section id="plans" className="py-8 bg-white">
+    <section id="plans" className="py-2 sm:py-8 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-black mb-6">
             Escolha o Plano Perfeito para Você
           </h2>
@@ -75,7 +75,7 @@ const PlansSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 max-w-4xl mx-auto mb-4 sm:mb-8">
           {plansTop.map((plan, index) => {
             const IconComponent = plan.icon;
             return (
@@ -132,7 +132,7 @@ const PlansSection = () => {
             );
           })}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 max-w-6xl mx-auto">
           {plansBottom.map((plan, index) => {
             const IconComponent = plan.icon;
             return (

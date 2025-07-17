@@ -1,8 +1,8 @@
 import React from 'react';
 
 const HeroDescription = () => (
-  <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-    Internet com ultravelocidade e estabilidade para você navegar, jogar, trabalhar e fazer tudo que quiser sem interrupções.
+  <p className="text-lg text-gray-200 max-w-2xl mx-auto mb-8">
+    Internet com ultravelocidade e estabilidade para todas as ocasiões.
   </p>
 );
 

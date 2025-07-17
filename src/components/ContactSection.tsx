@@ -65,9 +65,9 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-4 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-gradient mb-6">
             Fale Conosco
           </h2>
@@ -75,7 +75,7 @@ const ContactSection = () => {
             Entre em contato conosco e descubra como podemos revolucionar sua conexão com a internet
           </p>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-16">
           {/* Contact Methods */}
           <div>
             <h3 className="text-2xl font-bold text-black mb-8">Como podemos ajudar?</h3>

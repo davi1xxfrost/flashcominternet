@@ -9,7 +9,7 @@ const HeroButtons = () => {
   };
 
   return (
-    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 w-full">
+    <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center items-center mb-8 sm:mb-12 w-full">
       <a
         href="https://wa.me/5516981493961?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20planos%20de%20internet%20dispon%C3%ADveis."
         target="_blank"
@@ -19,21 +19,23 @@ const HeroButtons = () => {
       >
         Contate-nos
       </a>
-      <button
-        onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-        className="border-2 border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-black px-6 py-3 rounded-xl text-base sm:text-lg font-semibold transition-all duration-300 transform hover:scale-105 glass-effect w-full sm:w-auto"
-      >
-        Saiba Mais
-      </button>
-      <a
-        href="https://flashcom.sgp.net.br/accounts/central/login"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="border-2 border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-black px-6 py-3 rounded-xl text-base sm:text-lg font-semibold transition-all duration-300 transform hover:scale-105 glass-effect w-full sm:w-auto"
-        style={{ textDecoration: 'none' }}
-      >
-        Área do Cliente
-      </a>
+      <div className="flex flex-row gap-2 w-full sm:w-auto">
+        <button
+          onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+          className="border-2 border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-black px-4 py-2 rounded-xl text-sm sm:text-lg font-semibold transition-all duration-300 transform hover:scale-105 glass-effect w-full sm:w-auto"
+        >
+          Saiba Mais
+        </button>
+        <a
+          href="https://flashcom.sgp.net.br/accounts/central/login"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="border-2 border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-black px-4 py-2 rounded-xl text-sm sm:text-lg font-semibold transition-all duration-300 transform hover:scale-105 glass-effect w-full sm:w-auto"
+          style={{ textDecoration: 'none' }}
+        >
+          Área do Cliente
+        </a>
+      </div>
     </div>
   );
 };

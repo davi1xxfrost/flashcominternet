@@ -1,5 +1,7 @@
 import React from 'react';
 import { Zap, Shield, Headphones, Router, Clock, Award, ArrowUpCircle } from 'lucide-react';
+import { Carousel, CarouselContent, CarouselItem } from './ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 
 const BenefitsSection = () => {
   const benefits = [
@@ -41,6 +43,8 @@ const BenefitsSection = () => {
     }
   ];
 
+  const autoplay = React.useRef(Autoplay({ delay: 4000, stopOnInteraction: false })).current;
+
   return (
     <section id="benefits" className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,7 +57,35 @@ const BenefitsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000">
+        {/* Mobile: carrossel */}
+        <div className="block md:hidden mb-8 w-screen max-w-none relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+          <Carousel opts={{ loop: true }} plugins={[autoplay]}>
+            <CarouselContent>
+              {benefits.map((benefit, index) => {
+                const IconComponent = benefit.icon;
+                return (
+                  <CarouselItem key={index}>
+                    <div className="w-[90vw] max-w-xs mx-auto group card-3d glass-effect rounded-3xl p-8 shadow-2xl hover:shadow-orange-500/20 transition-all duration-500 transform hover:-translate-y-4 border border-gray-800 hover:border-brand-orange/30">
+                      <div className="text-center">
+                        <div className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-6 bg-gradient-to-r ${benefit.color} shadow-lg transition-transform duration-300 group-hover:scale-110`}>
+                          <IconComponent className="h-10 w-10 text-white" />
+                        </div>
+                        <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-brand-orange transition-colors duration-300">
+                          {benefit.title}
+                        </h3>
+                        <p className="text-gray-300 leading-relaxed">
+                          {benefit.description}
+                        </p>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                );
+              })}
+            </CarouselContent>
+          </Carousel>
+        </div>
+        {/* Desktop: grid */}
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000">
           {benefits.map((benefit, index) => {
             const IconComponent = benefit.icon;
             return (
@@ -65,11 +97,9 @@ const BenefitsSection = () => {
                   <div className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-6 bg-gradient-to-r ${benefit.color} shadow-lg transition-transform duration-300 group-hover:scale-110`}>
                     <IconComponent className="h-10 w-10 text-white" />
                   </div>
-                  
                   <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-brand-orange transition-colors duration-300">
                     {benefit.title}
                   </h3>
-                  
                   <p className="text-gray-300 leading-relaxed">
                     {benefit.description}
                   </p>

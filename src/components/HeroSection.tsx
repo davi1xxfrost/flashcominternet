@@ -16,7 +16,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="hero" className="relative min-h-[60vh] pt-16 lg:pt-28 pb-8 flex items-start justify-center overflow-hidden bg-black">
+    <section id="hero" className="relative sm:min-h-[60vh] pt-6 sm:pt-12 lg:pt-24 pb-0 sm:pb-8 mt-0 flex items-start justify-center overflow-hidden bg-black">
       {/* Background 3D Scene */}
       <Scene3D />
       {/* Background Network Animation */}
